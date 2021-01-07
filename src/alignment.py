@@ -459,14 +459,14 @@ if __name__ == '__main__':
                 +" -p " +config.parameters['salmon']['cpu'] \
                 +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf'] \
-                +" -r "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_trimmed.fq')+" " \
+                +" -r "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq|.fq','_trimmed.fq')+" " \
                 +" -o "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"salmon_output")
              
             salmon= subprocess.run(init.parameters['salmonPath']+" quant -i "+config.parameters['transcriptome_index'] \
                 +" -p " +config.parameters['salmon']['cpu'] \
                 +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf']  \
-                +" -r "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_trimmed.fq')+" " \
+                +" -r "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq|.fq','_trimmed.fq')+" " \
                 +" -o "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"salmon_output"
             ,stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True,shell=True)            
                    
@@ -481,16 +481,16 @@ if __name__ == '__main__':
                 +" -p " +config.parameters['salmon']['cpu'] \
                 +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf'] \
-                +" -1 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_val_1.fq') \
-                +" -2 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq','_val_2.fq') \
+                +" -1 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq|.fq','_val_1.fq') \
+                +" -2 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq|.fq','_val_2.fq') \
                 +" -o "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"salmon_output")
              
             salmon= subprocess.run(init.parameters['salmonPath']+" quant -i "+config.parameters['transcriptome_index'] \
                 +" -p " +config.parameters['salmon']['cpu'] \
                 +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf']  \
-                +" -1 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_val_1.fq') \
-                +" -2 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq','_val_2.fq') \
+                +" -1 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq|.fq','_val_1.fq') \
+                +" -2 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq|.fq','_val_2.fq') \
                 +" -o "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"salmon_output"
             ,stdout=subprocess.PIPE, stderr=subprocess.PIPE,universal_newlines=True,shell=True)
             
@@ -502,13 +502,13 @@ if __name__ == '__main__':
             
             #https://github.com/alexdobin/STAR/issues/143
             #Default pairend' abc'.translate(str.maketrans('ac','xy'))
-            opt_input=" --readFilesIn "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_val_1.fq')+" "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq','_val_2.fq')+" "
+            opt_input=" --readFilesIn "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq|.fq','_val_1.fq')+" "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq','_val_2.fq')+" "
             #opt_input=" --readFilesIn <\(zcat "+config.parameters['path_to_input']+''+config.parameters['files'][group_pair]['R1']+"\) <\(zcat  "+config.parameters['path_to_input']+''+config.parameters['files'][group_pair]['R2']+"\) "
 
             if (config.parameters["type"] == "singleEnd") :
                 logger.info('=========> SINGLE END')
 
-                opt_input=" --readFilesIn "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_trimmed.fq')+" "
+                opt_input=" --readFilesIn "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq|.fq','_trimmed.fq')+" "
                 #opt_input=" --readFilesIn <\(zcat "+config.parameters['path_to_input']+''+config.parameters['files'][group_pair]['R1']+"\) "
 
             # --sjdbFileChrStartEnd For the second pass
