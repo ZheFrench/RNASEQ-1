@@ -24,6 +24,10 @@ ALIGNMENT :
 
 _**STAR**_ : Aligner [here](https://github.com/alexdobin/STAR)
 
+_**trim-galore**_ : Aligner [here](https://anaconda.org/bioconda/trim-galore)
+
+_**tpmcalculator**_ : Compute TPM values f [here](https://anaconda.org/bioconda/trim-galore)
+
 _**Salmon**_ : Compute TPM values from fastq [here](https://github.com/COMBINE-lab/salmon)
 
 _**Samtools**_ : Bam handler [here](http://www.htslib.org/download/)
@@ -78,8 +82,17 @@ The json file is a *key:value* listing which defines all parameters for the pipe
 - name of analyse
 - ...
 
-
 See config directory. You will find an example called paired.set1_align.json for a test dataset.
+
+
+## Set up init.json
+
+For the alignement part, tpmcalculator and salmon path are the only ones that are really used from this file. 
+
+
+## Modified hard coded stuffs in alignement.py
+
+There is a path to a temporary directory used by STAR that is hard coded in alignement.py that need to be modified directly in the code.
 
 
 ## Launch Alignment
@@ -101,7 +114,7 @@ It will creates a directory (path defined in your configuration file) with insid
 4. Intermediate files used in the following steps of the pipeline.
 
 
-You need to use this on each sample/replicate.
+You need to use this on each sample/replicate (or pool the replicate into one and you will get one bigwig) 
 
 Finally you get the following directories as output : 
 
