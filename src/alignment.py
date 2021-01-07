@@ -457,14 +457,14 @@ if __name__ == '__main__':
 
             logger.info(init.parameters['salmonPath']+" quant -i "+config.parameters['transcriptome_index'] \
                 +" -p " +config.parameters['salmon']['cpu'] \
-                +" -l A " \
+                +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf'] \
                 +" -r "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_trimmed.fq')+" " \
                 +" -o "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"salmon_output")
              
             salmon= subprocess.run(init.parameters['salmonPath']+" quant -i "+config.parameters['transcriptome_index'] \
                 +" -p " +config.parameters['salmon']['cpu'] \
-                +" -l A " \
+                +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf']  \
                 +" -r "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_trimmed.fq')+" " \
                 +" -o "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"salmon_output"
@@ -479,7 +479,7 @@ if __name__ == '__main__':
         ####################### Salmonize ##########################
             logger.info(init.parameters['salmonPath']+" quant -i "+config.parameters['transcriptome_index'] \
                 +" -p " +config.parameters['salmon']['cpu'] \
-                +" -l A " \
+                +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf'] \
                 +" -1 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_val_1.fq') \
                 +" -2 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq','_val_2.fq') \
@@ -487,7 +487,7 @@ if __name__ == '__main__':
              
             salmon= subprocess.run(init.parameters['salmonPath']+" quant -i "+config.parameters['transcriptome_index'] \
                 +" -p " +config.parameters['salmon']['cpu'] \
-                +" -l A " \
+                +" -l A --validateMappings" \
                 +" -g "+config.parameters['path_to_gtf']  \
                 +" -1 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R1'].replace('.fastq','_val_1.fq') \
                 +" -2 "+trim_galore_output+'/'+config.parameters['files'][group_pair]['R2'].replace('.fastq','_val_2.fq') \
