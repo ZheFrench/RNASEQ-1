@@ -22,11 +22,13 @@ _**Conda**_ : [here](https://www.continuum.io/downloads)
 
 ALIGNMENT : 
 
+_**fastqc**_ : Quality [here](https://anaconda.org/bioconda/fastqc)
+
 _**STAR**_ : Aligner [here](https://github.com/alexdobin/STAR)
 
 _**trim-galore**_ : Aligner [here](https://anaconda.org/bioconda/trim-galore)
 
-_**tpmcalculator**_ : Compute TPM values f [here](https://anaconda.org/bioconda/trim-galore)
+_**tpmcalculator**_ : Compute TPM values f [here](https://anaconda.org/bioconda/TPMCalculator)
 
 _**Salmon**_ : Compute TPM values from fastq [here](https://github.com/COMBINE-lab/salmon)
 
