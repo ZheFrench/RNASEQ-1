@@ -516,7 +516,7 @@ if __name__ == '__main__':
                 +" --runThreadN "+config.parameters['star']['runThreadN']         \
                 +" --genomeDir "+config.parameters['star']['genomeDir']         \
                 +opt_input 
-                +"--outTmpDir  /home/jean-philippe.villemin/data/data/tmp_star/  "  \
+                +"--outTmpDir "+config.parameters['path_to_output']+outputdirname+"/tmp_star/ " \
                 +opt_gzippedFile      \
                 +" --outFileNamePrefix "+config.parameters['path_to_output']+outputdirname+"/"+config.parameters['final_bam_name']+"/"+"star_output"+"/"+config.parameters['final_bam_name']+"_"        \
                 +" --outSAMtype "+config.parameters['star']['outSAMtype']      \
@@ -532,7 +532,7 @@ if __name__ == '__main__':
                 +" --genomeDir "+config.parameters['star']['genomeDir']         \
                 +opt_input         \
                 +opt_gzippedFile      
-                + "--outTmpDir  /home/jean-philippe.villemin/data/data/tmp_star/  "  \
+                +"--outTmpDir "+config.parameters['path_to_output']+outputdirname+"/tmp_star/ " \
 
                 #https://github.com/alexdobin/STAR/issues/143
 
